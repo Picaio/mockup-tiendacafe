@@ -46,6 +46,14 @@ var helpers = {
     document.getElementById(id).innerHTML = html;
     return true;
   },
+  setCss: function (id, cssClass) {
+    document.getElementById(id).classList.add(cssClass);
+    return true;
+  },
+  removeCss: function (id, cssClass) {
+    document.getElementById(id).classList.remove(cssClass);
+    return true;
+  },
   itemData: function (object) {
     var count = object.querySelector(".count"),
       patt = new RegExp("^[1-9]([0-9]+)?$");
@@ -67,10 +75,12 @@ var helpers = {
       compiled = _.template(template, {
         items: items,
       });
+    this.removeCss("shopCart", "empty");
     this.setHtml("cartItems", compiled);
     this.updateTotal();
   },
   emptyView: function () {
+    this.setCss("shopCart", "empty");
     this.setHtml("cartItems", "<h3>Que esperas para probar?</h3>");
     this.updateTotal();
   },
