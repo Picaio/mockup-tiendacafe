@@ -78,14 +78,18 @@ var helpers = {
     this.removeCss("shopCart", "empty");
     this.setHtml("cartItems", compiled);
     this.updateTotal();
+    this.setHtml(
+      "cartCount",
+      `<small style="color: white; background-color: #6c4922; border-radius: 50%; padding: 1px 6px;">${cart.count}</small>`
+    );
   },
   emptyView: function () {
     this.setCss("shopCart", "empty");
-    this.setHtml("cartItems", "<h3>Que esperas para probar?</h3>");
+    this.setHtml("cartItems", "<small>Que esperas para probar?</small>");
     this.updateTotal();
   },
   updateTotal: function () {
-    this.setHtml("totalPrice", `<h3>$ ${cart.total}</h3>`);
+    this.setHtml("totalPrice", `<small>$ ${cart.total}</small>`);
   },
 };
 
@@ -100,12 +104,14 @@ var cart = {
     this.items = items;
     for (var i = 0; i < this.items.length; i++) {
       var _item = this.items[i];
+      this.count += Number(_item.count);
       this.total += _item.total;
     }
   },
   clearItems: function () {
     this.items = [];
     this.total = 0;
+    this.count = 0;
     storage.clearCart();
     helpers.emptyView();
   },
@@ -124,7 +130,8 @@ var cart = {
       this.updateItem(item);
     }
     this.total += item.price * item.count;
-    this.count += item.count;
+    this.count += Number(item.count);
+    console.log(this.count);
     helpers.updateView();
   },
   containsItem: function (id) {
