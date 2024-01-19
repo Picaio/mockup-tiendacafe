@@ -1081,21 +1081,25 @@
                                                         data-widget_type="craftcoffee-service-grid.default">
                                                         <div class="elementor-widget-container">
                                                             <div class="service-grid-container">
-                                                                <span class="elementor-icon elementor-animation-">
-                                                                    <i aria-hidden="true"
-                                                                        class="fas fa-shopping-cart"></i>
-                                                                </span>
                                                                 <div class="medium-4  columns">
                                                                     <div class="cart">
-                                                                        <h1>Carrito de Compras</h1>
+                                                                        <div style="display: flex;">
+                                                                            <h2 style="display: flex; color: bisque;">
+                                                                                Carrito de
+                                                                                Compras</h2>
+                                                                            <span id="cartCount"></span>
+                                                                        </div>
                                                                         <div id="cartItems" style="color: aqua;">
                                                                             Cargando Carrito...
                                                                         </div>
-                                                                        <h2
-                                                                            style="background-color: #926423; text-align: center; border-radius: 0.5rem;">
-                                                                            Precio Total: <span id="totalPrice">0
-                                                                                $</span>
-                                                                        </h2>
+                                                                        <span
+                                                                            style="display: flex; justify-content: center; background-color: #926423; text-align: center; border-radius: 0.5rem;"
+                                                                            class="elementor-icon elementor-animation-">
+                                                                            <h2>
+                                                                                Precio Total: <span id="totalPrice">0
+                                                                                    $</span>
+                                                                            </h2>
+                                                                        </span>
                                                                         <div class="row">
                                                                             <button id="clear"
                                                                                 class="elementor-button-link elementor-button elementor-size-xs elementor-animation-shrink"
@@ -1107,7 +1111,7 @@
                                                                                         Carrito</span>
                                                                                 </span>
                                                                             </button>
-                                                                            <button
+                                                                            <a href="checkout.html"
                                                                                 class="elementor-button-link elementor-button elementor-size-xs elementor-animation-shrink"
                                                                                 role="button">
                                                                                 <span
@@ -1115,7 +1119,7 @@
                                                                                     <span
                                                                                         class="elementor-button-text">Checkout</span>
                                                                                 </span>
-                                                                            </button>
+                                                                            </a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
